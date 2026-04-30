@@ -1,7 +1,5 @@
 # Lab Slot Booking and Asset Usage Tracker
 
-Full-stack assignment project for SE ZG503 (FSAD).
-
 ## Tech Stack
 
 - Frontend: React + Vite + React Router
@@ -38,14 +36,14 @@ Full-stack assignment project for SE ZG503 (FSAD).
 
 ## Swagger API Docs
 
-- Auth: `http://localhost:4001/api-docs`
-- Resources: `http://localhost:4002/api-docs`
-- Bookings: `http://localhost:4003/api-docs`
+•	Signup: POST http://98.130.124.48:4001/auth/signup
+•	Login: POST http://98.130.124.48:4001/auth/login
+•	Get Current User: GET http://98.130.124.48:4001/auth/me
+
 - Via gateway:
   - `http://localhost:4000/docs/auth`
   - `http://localhost:4000/docs/resources`
   - `http://localhost:4000/docs/bookings`
-
 ## Demo Credentials
 
 Create users with signup endpoint or UI:
