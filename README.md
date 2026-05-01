@@ -1,63 +1,106 @@
-# Lab Slot Booking and Asset Usage Tracker
+# Equipment Booking & Resource Management System
 
-## Tech Stack
+A full-stack web application to manage shared resources like lab equipment, enabling users to request bookings and admins to manage approvals efficiently.
 
-- Frontend: React + Vite + React Router
-- Backend: Node.js + Express (microservice-style)
-- Database: MongoDB (Mongoose)
-- Auth: JWT token-based auth with role-based access
+# Features
+## Authentication
+User signup & login
+JWT-based authentication
+Role-based access (student / admin)
+## Resource Management
+Add / update / delete resources
+View available equipment
+Track availability
+## Booking System
+Request equipment booking
+Approve / reject requests
+Mark resources as returned
+Prevent conflicts
+## Frontend
+Built with React (Vite)
+Responsive UI
+Dashboard and navigation
+## Architecture
+Frontend: React (Vite)
+Backend: Node.js (Microservices)
+Auth Service
+Resource Service
+Booking Service
+API Gateway
+Database: MongoDB Atlas
+Deployment: AWS EC2
+Process Manager: PM2
 
-## Services
+# Deployment:
+The application is deployed on AWS EC2 and accessible via public IP.
 
-- `auth-service` (port `4001`): signup/login/profile
-- `resource-service` (port `4002`): CRUD for lab resources
-- `booking-service` (port `4003`): request/approve/reject/return bookings
-- `api-gateway` (port `4000`): single entry point and docs proxy
+# Live URLs
+## Frontend:
+http://98.130.124.48:3000
 
-## Quick Start
+## API Gateway:
+http://98.130.124.48:4000
 
-1. Start MongoDB locally on `mongodb://127.0.0.1:27017`.
-2. Copy environment files:
-   - `services/auth-service/.env.example` -> `services/auth-service/.env`
-   - `services/resource-service/.env.example` -> `services/resource-service/.env`
-   - `services/booking-service/.env.example` -> `services/booking-service/.env`
-   - `services/api-gateway/.env.example` -> `services/api-gateway/.env`
-   - `frontend/.env.example` -> `frontend/.env`
-3. Setup backend services:
-   - `cd services/auth-service && npm install && npm run dev`
-   - `cd services/resource-service && npm install && npm run dev`
-   - `cd services/booking-service && npm install && npm run dev`
-   - `cd services/api-gateway && npm install && npm run dev`
-4. (Optional) Seed demo data:
-   - `node scripts/seed.js`
-5. Setup frontend:
-   - `cd frontend && npm install && npm run dev`
-6. Open frontend URL shown by Vite (default `http://localhost:5173`).
+## Auth Service:
+http://98.130.124.48:4001
+# API Endpoints
+## Authentication
+POST /auth/signup
+POST /auth/login
+GET  /auth/me
+## Resources
+GET    /resources
+POST   /resources
+PUT    /resources/:id
+DELETE /resources/:id
+## Bookings
+POST  /bookings
+GET   /bookings
+PATCH /bookings/:id/decision
+PATCH /bookings/:id/return
 
-## Swagger API Docs
+# Database
+MongoDB Atlas is used for data persistence.
+Collections
+Users
+Resources
+Bookings
 
-•	Signup: POST http://98.130.124.48:4001/auth/signup
-•	Login: POST http://98.130.124.48:4001/auth/login
-•	Get Current User: GET http://98.130.124.48:4001/auth/me
+# Installation & Setup
+## 1) Clone the repo
+git clone https://github.com/KollaNagaManasa/2024tm93519-Full-Stack-Application-Development-Assignment
+cd 2024tm93519-Full-Stack-Application-Development-Assignment
+## 2) Setup Backend (Auth Service example)
+cd services/auth-service
+npm install
+## 3) Create .env
+PORT=4001
+MONGO_URI=mongodb+srv://<username>:<password>@cluster/fsad_lab_booking
+JWT_SECRET=your_secret
+## 4) Run Services (using PM2)
+pm2 start src/index.js --name auth-service
+pm2 start src/index.js --name resource-service
+pm2 start src/index.js --name booking-service
+pm2 start src/index.js --name api-gateway
+## 5) Run Frontend
+cd frontend
+npm install
+npm run dev
 
-- Via gateway:
-  - `http://localhost:4000/docs/auth`
-  - `http://localhost:4000/docs/resources`
-  - `http://localhost:4000/docs/bookings`
-## Demo Credentials
+# AI Usage
+AI tools such as ChatGPT and Cursor were used for:
 
-Create users with signup endpoint or UI:
-- `student`
-- `faculty`
-- `admin`
+Debugging MongoDB Atlas connection
+Fixing authentication issues
+Generating API structure
+Troubleshooting deployment on EC2
 
-Admins can create resources. Students can create booking requests. Faculty/Admin can approve or reject.
+# Demo Video
+📎 Google Drive Link: (Add your link here)
 
-## Submission Artifacts
-
-- API docs: `docs/api-endpoints.md`
-- Architecture: `docs/architecture.md`
-- Data model: `docs/erd.md`
-- AI usage log template: `docs/ai-usage-log-template.md`
-- Reflection template: `docs/reflection-template.md`
-- Demo video script: `docs/demo-video-script.md`
+# Project Highlights
+Microservice-based architecture
+JWT authentication
+MongoDB Atlas integration
+AWS EC2 deployment
+Full frontend-backend integration
