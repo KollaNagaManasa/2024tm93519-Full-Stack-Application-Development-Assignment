@@ -96,7 +96,7 @@ Generating API structure
 Troubleshooting deployment on EC2
 
 # Demo Video
-📎 Google Drive Link: (Add your link here)
+https://drive.google.com/drive/folders/1OJ8HrZTwTRwozU9chGB6d4X641Aaz-y4
 
 # Project Highlights
 Microservice-based architecture
